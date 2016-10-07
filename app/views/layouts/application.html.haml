@@ -1,0 +1,30 @@
+!!! 5
+%html
+%head
+	%title Омский виноград
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+
+%body
+	%nav.navbar.navbar-inverse
+		.container
+			.navbar-brand= link_to "Омский виноград", root_path
+		
+			- if user_signed_in?
+				%ul.nav.navbar-nav.navbar-left
+					%li= link_to "Создать", new_pic_path
+					%li= link_to "Выйти", destroy_user_session_path, method: :delete
+
+			- else
+				%ul.nav.navbar-nav.navbar-left
+					%li= link_to "Контакты", "#"
+					%li= link_to "Корзина",  "#"
+
+	.container
+		-flash.each do |name, msg|
+			=content_tag :div, msg, class: "alert alert-info"
+
+		= yield
+
+	
