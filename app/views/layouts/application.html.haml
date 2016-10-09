@@ -7,9 +7,9 @@
 	= csrf_meta_tags
 
 %body
-	%nav.navbar.navbar-inverse
+	%nav.navbar.navbar-default
 		.container
-			.navbar-brand= link_to "Омский виноград", root_path
+			.navbar-brand= link_to "Омский виноград", root_path, style: "color: #ecf0f1 !important;"
 		
 			- if user_signed_in?
 				%ul.nav.navbar-nav.navbar-left
@@ -19,7 +19,9 @@
 			- else
 				%ul.nav.navbar-nav.navbar-left
 					%li= link_to "Контакты", "#"
-					%li= render 'cart'
+				%ul.nav.navbar-nav.navbar-right
+					#cart
+						%li= render 'cart'
 
 	.container
 		-flash.each do |name, msg|

@@ -17,6 +17,48 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar-default {
+    background-color: #04B5D8;
+    border-color: #27ae60;
+    .navbar-brand {
+      a {
+        color: #ecf0f1;
+        font-weight: bold;
+        font-size: 2em;
+        &:hover {
+            text-decoration: none;
+          }
+        }
+  }
+}
+
+.navbar-default .navbar-left {
+  li{
+   a {
+    color: #ffffff;
+    font-weight: bold;
+    
+    }
+  } 
+  }
+
+
+.cart {
+  text-align: left;
+  #product_in_cart{
+    a{
+      color: red;
+    }
+  }
+}
+
+
+.total{
+  text-align: right;
+  font-weight: bold;
+  border-top: 2px solid #ffffff;
+  }
+
 body {
   background: #E9E9E9;
 }
@@ -30,21 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-nav {
-   
-  background: #529ECC;
-
-  .navbar-brand {
-    a {
-      color: #529ECC;
-      font-weight: bold;
-      font-size: 1.6em;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-}
+ 
 
 #pics {
   margin: 0 auto;

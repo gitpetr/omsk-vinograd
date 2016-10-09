@@ -51,6 +51,7 @@ class PicsController < ApplicationController
 
 
 def add
+    
     id = params[:id]
     if session[:cart] then 
       cart = session[:cart]
