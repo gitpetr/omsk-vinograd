@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/effect-blind
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
 //= require turbolinks
 //= require_tree .
+$('#cart').css({'background-color':'#88ff88'}).
+ animate({'background-color':'#04B5D8'}, 1000);

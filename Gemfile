@@ -51,5 +51,5 @@ gem 'bootstrap-sass'
 gem 'devise' 
 gem 'paperclip' 
 gem 'masonry-rails'
-
+gem 'jquery-ui-rails'
 ruby '2.3.0'
