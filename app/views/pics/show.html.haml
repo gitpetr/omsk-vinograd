@@ -23,6 +23,6 @@
 									= link_to "Изменить", edit_pic_path, class: "btn btn-info"
 									= link_to "Удалить", pic_path, method: :delete, data: { confirm: "Удалить безвозвратно?" }, class: "btn btn-danger"
 							- else
-								= link_to "Add to cart", "/cart/#{ @pic.id}" 
-									 
+								= link_to "Add to cart", add_pic_path(@pic)
+
 

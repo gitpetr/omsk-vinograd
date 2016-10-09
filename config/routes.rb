@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  get '/cart' => 'cart#index'
-  get '/cart/clear' => 'cart#clearCart'
-  get '/cart/:id' => 'cart#add'
+  # get '/cart' => 'pics#index'
+  get '/pics/clear' => 'pics#clearCart'
+  # get '/cart/:id' => 'pics#add'
 
   devise_for :users
-  resources :pics  
+  resources :pics do
+    member do 
+      get 'add'
+    end
+  end 
   root "pics#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

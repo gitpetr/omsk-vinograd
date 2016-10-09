@@ -1,8 +1,13 @@
 class PicsController < ApplicationController
   before_action :find_pic, only: [:show, :edit, :update, :destroy, :upvote]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :add, :cart , :clearCart]
 
   def index
+    if session[:cart] then 
+      @cart = session[:cart] 
+    else
+      @cart = {}
+    end
     @pics = Pic.all.order("created_at DESC")
   end
 
@@ -41,10 +46,45 @@ class PicsController < ApplicationController
     redirect_to root_path
   end
 
-  def upvote
-    @pic.upvote_by current_user
-    redirect_to :back
+ 
+
+
+
+def add
+    id = params[:id]
+    if session[:cart] then 
+      cart = session[:cart]
+    else
+      session[:cart] = {}
+      cart = session[:cart]
+    end
+
+    if cart[id] then 
+      cart[id] = cart[id] + 1
+    else
+      cart[id] = 1
+    end
+    redirect_to :action => :index
   end
+
+  def clearCart
+    session[:cart] = nil 
+    redirect_to :action => :index
+  end
+
+  def cart
+    if session[:cart] then 
+      @cart = session[:cart] 
+    else
+      @cart = {}
+    end
+  end
+
+
+
+
+
+
 
   private
 

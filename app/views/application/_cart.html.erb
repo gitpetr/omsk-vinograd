@@ -1,0 +1,28 @@
+<% if @cart %>
+<% if @cart.empty? %>
+  <p>Ваша корзина пуста</p>
+  <% else %>
+<%= link_to 'Очистить корзину', pics_clear_path %>
+<% end %>
+
+<% end %>
+<% if @cart %>
+
+<% total = 0 %>
+
+<ul>
+<% @cart.each do | id, quantity | %>
+  <% product = Pic.find_by_id(id) %>
+  <li>
+   <p> <%= quantity %> <%= link_to product.title, product %>
+     <%= product.price * quantity %> Руб.</p>
+  </li>
+
+  <% total += quantity * product.price %>
+  <% end %>
+
+</ul>
+<p class="total"><b>
+Итого: <%= total %> Руб.</b>
+</p>
+<% end %>
