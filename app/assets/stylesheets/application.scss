@@ -165,3 +165,12 @@ h1, h2, h3, h4, h5, h6 {
 textarea {
   min-height: 250px;
 }
+.rel{
+  position: relative;
+  width: 30%;
+  #cart{
+    z-index: 1001;
+    background-color: yellow;
+    padding:10px;
+  }
+}
