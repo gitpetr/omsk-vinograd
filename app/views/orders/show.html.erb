@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="ordershow">
+<p><%= render 'cart' %></p>
+<p>
+  <strong>ФИО:</strong>
+  <%= @order.fio %>
+</p>
+
+<p>
+  <strong>Адрес:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>Индекс:</strong>
+  <%= @order.index %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @order.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Примечание:</strong>
+  <%= @order.price %>
+</p>
+
+<%= render "blank" %>
+</div>

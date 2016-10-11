@@ -47,7 +47,7 @@
   text-align: left;
   #product_in_cart{
     a{
-      color: red;
+      color: green;
     }
   }
 }
@@ -65,7 +65,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
-  color: #529ECC;
+  color: #7E5D86;
   font-weight: bold;
   text-align: center;
 }
@@ -173,4 +173,8 @@ textarea {
     background-color: yellow;
     padding:10px;
   }
+}
+
+.ordershow{
+  font-size: 18px;
 }

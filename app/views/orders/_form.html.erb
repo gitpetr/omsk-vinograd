@@ -1,0 +1,16 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :fio,  placeholder: "ФИО полностью", label: 'Фамилия Имя Отчество' %>
+    <%= f.input :address, label: 'Адрес подробно', placeholder: 'Область город район село улица дом квартира' %>
+    <%= f.input :index, label: 'индекс', placeholder: '646464' %>
+    <%= f.input :phone, label: 'контактный телефон' %>
+    <%= f.input :email, placeholder: 'user@domain.com' %>
+    <%= f.input :price, label: 'повторите здесь "название: количество" заказанного товара, и Ваши пожелания', placeholder: "    название: кличество\nназвание: кличество\nназвание: кличество\nназвание: кличество\n\n\n\n\n\bваши пожелания" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Отправить" %>
+  </div>
+<% end %>
