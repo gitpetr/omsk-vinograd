@@ -8,7 +8,13 @@ class PicsController < ApplicationController
     else
       @cart = {}
     end
-    @pics = Pic.all.order("created_at DESC")
+
+    if params[:category].blank?
+    @pics = Pic.where(category_id: 1).order("title")
+  else
+    @category_id = Category.find_by(name: params[:category]).id
+    @pics = Pic.where(category_id: @category_id).order("title")
+  end
   end
 
   def show
@@ -93,7 +99,7 @@ def add
   private
 
   def pic_params
-    params.require(:pic).permit(:title, :description, :image, :price)
+    params.require(:pic).permit(:title, :description, :image, :price, :category_id)
   end
 
   def find_pic

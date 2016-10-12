@@ -56,7 +56,7 @@
 .total{
   text-align: right;
   font-weight: bold;
-  border-top: 2px solid #ffffff;
+  border-top: 2px solid red;
   }
 
 body {
@@ -177,4 +177,15 @@ textarea {
 
 .ordershow{
   font-size: 18px;
+}
+ul {
+  list-style: none;
+}
+
+#category{
+  font-size: 20px;
+  text-align: center;
+}
+.linkright{
+  margin-left: 120px;
 }

@@ -23,7 +23,13 @@
 				%ul.nav.navbar-nav.navbar-right
 					#cart
 						%li
-
+	
+	.container
+		.row
+			.col-md-10.col-md-offset-2
+				%ul.list-inline				
+					- Category.all.each do |category|
+						%li= link_to category.name, pics_path(category: category.name), id: "category"
 	.container
 		-flash.each do |name, msg|
 			=content_tag :div, msg, class: "alert alert-info"

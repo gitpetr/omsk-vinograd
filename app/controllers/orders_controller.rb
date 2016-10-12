@@ -34,11 +34,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    if session[:cart] then 
-      @cart = session[:cart] 
-    else
-      @cart = {}
-    end
+    session[:cart] = nil 
     @order = Order.new(order_params)
 
     respond_to do |format|

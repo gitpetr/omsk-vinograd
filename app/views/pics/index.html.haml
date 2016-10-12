@@ -1,16 +1,19 @@
-.col-lx-12
+.row
+  .col-lx-12
 
-  .rel{position: "relative"}
-    #cart{position: "absolute", width: "20%"}
-      - if @cart.size > 0
-        = render 'cart'
-  #pics.transitions-enabled
-    - @pics.each do |pic|
-      .box.panel.panel-default
-        = link_to (image_tag pic.image.url), pic
-        %h2= link_to pic.title, pic
-        - if !user_signed_in?
-          = link_to "выбрать", add_pic_path(pic), class: "btn btn-default" 
+    .rel{position: "relative"}
+      #cart{position: "absolute", width: "20%"}
+        - if @cart.size > 0
+          = render 'cart'
+          = link_to 'Оформить покупку', new_order_path, class: "linkright"  
+
+    #pics.transitions-enabled
+      - @pics.each do |pic|
+        .box.panel.panel-default
+          = link_to (image_tag pic.image.url), pic
+          %h2= link_to pic.title, pic
+          - if !user_signed_in?
+            = link_to "выбрать", add_pic_path(pic), class: "btn btn-default" 
 
 
 
