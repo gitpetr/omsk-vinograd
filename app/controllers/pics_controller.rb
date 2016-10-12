@@ -12,6 +12,7 @@ class PicsController < ApplicationController
   end
 
   def show
+    @random_post = Pic.where.not(id: @pic).order("RANDOM()").first
   end
 
   def new
