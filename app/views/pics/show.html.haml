@@ -5,7 +5,7 @@
 				= image_tag @pic.image.url(:lg)
 			.panel-body
 				%h1= @pic.title
-				%p= @pic.description
+				%p= simple_format @pic.description
 			.panel-footer
 				.row
 					.col-md-6
@@ -31,7 +31,7 @@
 						= link_to (image_tag @random_post.image.url(:medium)), pic_path(@random_post)
 					.panel_body
 						%h2= link_to @random_post.title, pic_path(@random_post)
-						%p= @random_post.description
+						%p= simple_format @random_post.description
 					 
 				
 			.panel-footer
@@ -47,8 +47,7 @@
 						.btn-group.pull-right
 							- if user_signed_in?
 								- if current_user.is_admin
-									= link_to "Изменить", edit_pic_path, class: "btn btn-info"
-									= link_to "Удалить", pic_path, method: :delete, data: { confirm: "Удалить безвозвратно?" }, class: "btn btn-danger"
+									%h2= link_to "&#8986;".html_safe, pic_path(@random_post)
 							- else
 								= link_to "Выбрать", add_pic_path(@random_post)
 
