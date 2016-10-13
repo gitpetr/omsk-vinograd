@@ -8,6 +8,6 @@
 User.delete_all
 User.create(
   email: 'rna252240@yandex.ru',
-  password: 'Q_1975-tatinu1975',
+  password: 'Qqqqqqqqq_1975-tatinu1975',
   is_admin: true
 )
