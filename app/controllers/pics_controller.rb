@@ -99,7 +99,7 @@ def add
   private
 
   def pic_params
-    params.require(:pic).permit(:title, :description, :image, :price, :category_id)
+    params.require(:pic).permit(:title, :description, :image, :price, :category_id, :for_sale)
   end
 
   def find_pic
