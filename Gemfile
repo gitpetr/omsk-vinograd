@@ -45,7 +45,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'haml', '~> 4.0.5'
+gem 'haml-rails'
 gem 'simple_form' 
 gem 'bootstrap-sass' 
 gem 'devise' 

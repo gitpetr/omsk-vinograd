@@ -1,0 +1,15 @@
+ 
+.row
+  .col-lx-12.col-md-12
+    %p
+      %b 
+        = @article.title
+    .article
+      = image_tag @article.image.url(:lg)
+      %p
+        = simple_format @article.description
+      - if user_signed_in?
+        - if current_user.is_admin
+          = link_to 'Edit', edit_article_path(@article)
+          \|
+      = link_to 'Назад', articles_path

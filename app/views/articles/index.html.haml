@@ -1,0 +1,23 @@
+.row
+  .col-lx-12
+    %h1 Все о винограде и не только
+
+    #articles.transitions-enabled
+      - @articles.each do |article|
+        .box.panel.panel-default
+          %h2= article.title
+        .article  
+          = link_to (image_tag article.image.url(:medium)), article
+          = link_to truncate(article.description, length: 1000), article
+        - if user_signed_in?
+          - if current_user.is_admin
+            = link_to 'Edit', edit_article_path(article)
+            = link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Удалить насовсем?' }
+
+
+    = will_paginate @articles
+
+
+    - if user_signed_in?
+      - if current_user.is_admin
+        = link_to 'New Article', new_article_path

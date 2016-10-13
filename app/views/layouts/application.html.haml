@@ -15,11 +15,13 @@
 				- if current_user.is_admin
 					%ul.nav.navbar-nav.navbar-left
 						%li= link_to "Создать", new_pic_path
+						%li= link_to "статьи", articles_path
 						%li= link_to "Выйти", destroy_user_session_path, method: :delete
 
 			- else
 				%ul.nav.navbar-nav.navbar-left
 					%li= link_to "Контакты", "#"
+					%li= link_to "статьи", articles_path
 				%ul.nav.navbar-nav.navbar-right
 					#cart
 						%li
