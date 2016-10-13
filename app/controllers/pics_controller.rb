@@ -10,10 +10,10 @@ class PicsController < ApplicationController
     end
 
     if params[:category].blank?
-    @pics = Pic.where(category_id: 1).order("title")
+    @pics = Pic.paginate(:page => params[:page], :per_page => 9).where(category_id: 1).order("title")
   else
     @category_id = Category.find_by(name: params[:category]).id
-    @pics = Pic.where(category_id: @category_id).order("title")
+    @pics = Pic.paginate(:page => params[:page], :per_page => 9).where(category_id: @category_id).order("title")
   end
   end
 
