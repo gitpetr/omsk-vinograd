@@ -1,37 +1,21 @@
-<p id="notice"><%= notice %></p>
+ 
+<div class="row">
+<div class="col-lx-12 col-md-12 box panel panel-default">
+<h1>Заказы</h1>
 
-<h1>Listing Orders</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Fio</th>
-      <th>Address</th>
-      <th>Index</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+ 
     <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.fio %></td>
-        <td><%= order.address %></td>
-        <td><%= order.index %></td>
-        <td><%= order.phone %></td>
-        <td><%= order.email %></td>
-        <td><%= order.price %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <p><%= order.created_at.strftime("%m-%d-%Y") %></p>
+        <p><%= order.fio %></p>
+        <p><%= order.address %></p>
+        <p><%= order.index %></p>
+        <p><%= order.phone %></p>
+        <p><%= order.email %></p>
+        <p><%= order.price %></p>
+        <p><%= link_to 'Show', order %></p>
+        <p><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Удалить насовсем?' } %></p>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+</div>
+</div>
+ 

@@ -12,8 +12,8 @@
           
         - if user_signed_in?
           - if current_user.is_admin
-            = link_to 'Edit', edit_news_path(new)
-            = link_to 'Destroy', new, :method => :delete, :data => { :confirm => 'Удалить насовсем?' }
+            = link_to 'Изменить', edit_news_path(new), class: "btn btn-info"
+            = link_to 'Удалить', new, :method => :delete, :data => { :confirm => 'Удалить насовсем?' }, class: "btn btn-danger"
 
 
     = will_paginate @news
