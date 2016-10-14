@@ -22,7 +22,7 @@
 									= link_to "Удалить", pic_path, method: :delete, data: { confirm: "Удалить безвозвратно?" }, class: "btn btn-danger"
 							- else
 								- if @pic.for_sale
-									= link_to "Выбрать", add_pic_path(@random_post)
+									= link_to "Выбрать", add_pic_path(@pic)
 
 	#random_post
 		.col-md-4.col-md-offset-1

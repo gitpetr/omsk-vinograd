@@ -1,0 +1,7 @@
+- if user_signed_in? 
+  - if current_user.is_admin 
+    %h1 редактировать новость
+
+    = render 'form'
+
+    = link_to 'Назад', news_index_path

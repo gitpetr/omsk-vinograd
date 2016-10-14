@@ -1,0 +1,24 @@
+.row
+  .col-lx-12
+    %h1 новости
+
+    #news.transitions-enabled
+      - @news.each do |new|
+        .box.panel.panel-default
+          %p
+            %em= new.created_at.strftime("%m-%d-%Y")
+            %b= new.title
+          %p= simple_format new.body
+          
+        - if user_signed_in?
+          - if current_user.is_admin
+            = link_to 'Edit', edit_news_path(new)
+            = link_to 'Destroy', new, :method => :delete, :data => { :confirm => 'Удалить насовсем?' }
+
+
+    = will_paginate @news
+
+
+    - if user_signed_in?
+      - if current_user.is_admin
+        = link_to 'Добавить новость', new_news_path

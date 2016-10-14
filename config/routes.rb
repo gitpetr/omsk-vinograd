@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :news
   resources :articles
   resources :orders
   # get '/cart' => 'pics#index'
