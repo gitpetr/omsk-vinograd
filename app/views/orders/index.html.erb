@@ -5,15 +5,15 @@
 
  
     <% @orders.each do |order| %>
-        <p><%= order.created_at.strftime("%m-%d-%Y") %></p>
+        <p><%= order.created_at.strftime("%d-%m-%Y") %></p>
         <p><%= order.fio %></p>
         <p><%= order.address %></p>
         <p><%= order.index %></p>
         <p><%= order.phone %></p>
         <p><%= order.email %></p>
         <p><%= order.price %></p>
-        <p><%= link_to 'Show', order %></p>
-        <p><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Удалить насовсем?' } %></p>
+        <p><%= link_to 'Показать', order %></p>
+        <p><%= link_to 'Удалить', order, method: :delete, data: { confirm: 'Удалить насовсем?' } %></p>
     <% end %>
 
 </div>

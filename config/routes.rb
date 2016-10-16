@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :news
   resources :articles
   resources :orders
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       get 'add'
     end
   end 
+  get 'results', to: 'results#index', as: 'results'
   root "pics#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

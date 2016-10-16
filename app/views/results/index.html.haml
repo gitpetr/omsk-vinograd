@@ -1,0 +1,16 @@
+#pics.transitions-enabled
+  %h3 
+    Результаты поиска по запросу 
+    %em= params[:query]
+
+  - @search_results.each do |result|
+    .box.panel.panel-default
+      = link_to (image_tag result.image.url), result
+      %h2= link_to result.title, result 
+      - if !user_signed_in?
+        - if result.for_sale
+          = link_to "выбрать", add_pic_path(result), class: "btn btn-default" 
+
+      %hr
+
+   

@@ -1,44 +1,48 @@
 !!! 5
 %html
 %head
-	%title Омский виноград
-	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-	= javascript_include_tag 'application', 'data-turbolinks-track' => true
-	= csrf_meta_tags
+  %title Омский виноград
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
 
 %body
-	%nav.navbar.navbar-default
-		.container
-			.navbar-brand= link_to "Омский виноград", root_path, style: "color: #ecf0f1 !important;"
-		
-			- if user_signed_in?
-				- if current_user.is_admin
-					%ul.nav.navbar-nav.navbar-left
-						%li= link_to "Создать", new_pic_path
-						%li= link_to "статьи", articles_path
-						%li= link_to 'новости', news_index_path
-						%li= link_to 'заказы', orders_path
-						%li= link_to "Выйти", destroy_user_session_path, method: :delete
+  %nav.navbar.navbar-default
+    .container
+      .navbar-brand= link_to "Омский виноград", root_path, style: "color: #ecf0f1 !important;"
+    
+      - if user_signed_in?
+        - if current_user.is_admin
+          %ul.nav.navbar-nav.navbar-left
+            %li= link_to "Создать", new_pic_path
+            %li= link_to "статьи", articles_path
+            %li= link_to 'новости', news_index_path
+            %li= link_to 'заказы', orders_path
+            %li= link_to "Выйти", destroy_user_session_path, method: :delete
 
-			- else
-				%ul.nav.navbar-nav.navbar-left
-					%li= link_to "контакты", "#"
-					%li= link_to "статьи", articles_path
-					%li= link_to 'новости', news_index_path
-				%ul.nav.navbar-nav.navbar-right
-					#cart
-						%li
-	
-	.container
-		.row
-			.col-md-10.col-md-offset-2
-				%ul.list-inline				
-					- Category.all.each do |category|
-						%li= link_to category.name, pics_path(category: category.name), id: "category"
-	.container
-		-flash.each do |name, msg|
-			=content_tag :div, msg, class: "alert alert-info"
+      - else
+        %ul.nav.navbar-nav.navbar-left
+          %li= link_to "контакты", "#"
+          %li= link_to "статьи", articles_path
+          %li= link_to 'новости', news_index_path
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = form_tag results_path, method: :get, role: 'search' do
+              = text_field_tag :query, params[:query]
+              = submit_tag "Искать", name: nil
 
-		= yield
 
-	
+  
+  .container
+    .row
+      .col-md-10.col-md-offset-2
+        %ul.list-inline       
+          - Category.all.each do |category|
+            %li= link_to category.name, pics_path(category: category.name), id: "category"
+  .container
+    -flash.each do |name, msg|
+      =content_tag :div, msg, class: "alert alert-info"
+
+    = yield
+
+  
